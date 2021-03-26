@@ -42,7 +42,7 @@ var hljs = require('highlight.js');
 var hljsGraphQL = require('highlightjs-graphql');
 
 hljs.registerLanguage("graphql", hljsGraphQL);
-hljs.initHighlightingOnLoad();
+hljs.highlightAll();
 ```
 
 ## Usage
