@@ -19,11 +19,16 @@ describe("highlight " + languageName, () => {
   });
 
   it ("highlights language string", () => {
-    const string = "assign false builtin";
-    const expected = '';
+    const string = "fragment comparisonFields on Character {\
+      name\
+      friends {\
+        name\
+      }\
+    }";
+    const expected = '<span class="hljs-keyword">fragment</span> comparisonFields <span class="hljs-keyword">on</span> Character <span class="hljs-punctuation">{</span>      name      friends <span class="hljs-punctuation">{</span>        name      <span class="hljs-punctuation">}</span>    <span class="hljs-punctuation">}</span>';
     const result = hljs.highlight(string, { language: languageName, ignoreIllegals: true });
     expect(result.language).toBe(languageName);
-    // expect(result.value).toBe(expected);
+    expect(result.value).toBe(expected);
   });
 
   it("highlights language file", () => {
@@ -43,6 +48,6 @@ describe("highlight " + languageName, () => {
       path.resolve(__dirname, testFileExpectedPath),
       "utf-8"
     );
-    // expect(result.value).toBe(expected);
+    expect(result.value).toBe(expected);
   });
 });

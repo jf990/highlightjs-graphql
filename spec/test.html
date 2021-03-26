@@ -13,57 +13,57 @@
 <div>
   <h3>Code block</h3>
   <pre><code class="language-graphql">
-    type Project {
-      name: String
-      tagline: String
-      contributors: [User]
+type Project {
+  name: String
+  tagline: String
+  contributors: [User]
+}
+
+# Example mutation
+
+mutation updateMyUrbanEvent($studyArea: PolygonInput!, $myDescription: String!) {
+  updateProjects(
+    urbanDatabaseId: "9c3ba6c054f945acabd1256bcbcf8XXX"
+    projects: [{ attributes: { GlobalID: "078D217A-1764-4AA2-9D23-6FCDA01F0XXX", Description: $myDescription }, geometry: $studyArea }]
+  ) {
+    attributes {
+      GlobalID
+      CustomID
+      Description
     }
-
-    # Example mutation
-
-    mutation updateMyUrbanEvent($studyArea: PolygonInput!, $myDescription: String!) {
-      updateProjects(
-        urbanDatabaseId: "9c3ba6c054f945acabd1256bcbcf8XXX"
-        projects: [{ attributes: { GlobalID: "078D217A-1764-4AA2-9D23-6FCDA01F0XXX", Description: $myDescription }, geometry: $studyArea }]
-      ) {
-        attributes {
-          GlobalID
-          CustomID
-          Description
-        }
-        geometry {
-          rings
-        }
-      }
+    geometry {
+      rings
     }
+  }
+}
 
-    # Example of a query:
+# Example of a query:
 
-    query HeroForEpisode($ep: Episode!) {
-      hero(episode: $ep) {
+query HeroForEpisode($ep: Episode!) {
+  hero(episode: $ep) {
+    name
+    ... on Droid {
+      primaryFunction
+    }
+    ... on Human {
+      height
+    }
+  }
+}
+
+# Example fragment:
+
+fragment comparisonFields on Character {
+  name
+  friendsConnection(first: $first) {
+    totalCount
+    edges {
+      node {
         name
-        ... on Droid {
-          primaryFunction
-        }
-        ... on Human {
-          height
-        }
       }
     }
-
-    # Example fragment:
-
-    fragment comparisonFields on Character {
-      name
-      friendsConnection(first: $first) {
-        totalCount
-        edges {
-          node {
-            name
-          }
-        }
-      }
-    }
+  }
+}
     </code></pre>
   <pre><code class="language-graphql">
     fragment comparisonFields on Character
