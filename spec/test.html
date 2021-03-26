@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test highlightjs GraphQL grammar</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+  <script src="../src/languages/graphql.js"></script>
+</head>
+<body>
+<h1>GraphQL highlighting</h1>
+<p>Test highlightjs GraphQL grammar in browser:</p>
+<div>
+  <h3>Code block</h3>
+  <pre><code class="language-graphql">
+    type Project {
+      name: String
+      tagline: String
+      contributors: [User]
+    }
+
+    # Example mutation
+
+    mutation updateMyUrbanEvent($studyArea: PolygonInput!, $myDescription: String!) {
+      updateProjects(
+        urbanDatabaseId: "9c3ba6c054f945acabd1256bcbcf8XXX"
+        projects: [{ attributes: { GlobalID: "078D217A-1764-4AA2-9D23-6FCDA01F0XXX", Description: $myDescription }, geometry: $studyArea }]
+      ) {
+        attributes {
+          GlobalID
+          CustomID
+          Description
+        }
+        geometry {
+          rings
+        }
+      }
+    }
+
+    # Example of a query:
+
+    query HeroForEpisode($ep: Episode!) {
+      hero(episode: $ep) {
+        name
+        ... on Droid {
+          primaryFunction
+        }
+        ... on Human {
+          height
+        }
+      }
+    }
+
+    # Example fragment:
+
+    fragment comparisonFields on Character {
+      name
+      friendsConnection(first: $first) {
+        totalCount
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+    </code></pre>
+  <pre><code class="language-graphql">
+    fragment comparisonFields on Character
+  </code></pre>
+</div>
+<div>
+  <h3>Plain text</h3>
+  <pre><code class="plaintext">
+    type Project {
+      name: String
+      tagline: String
+      contributors: [User]
+    }
+
+    # Example of a query:
+
+    query HeroForEpisode($ep: Episode!) {
+      hero(episode: $ep) {
+        name
+        ... on Droid {
+          primaryFunction
+        }
+        ... on Human {
+          height
+        }
+      }
+    }
+
+    # Example fragment:
+
+    fragment comparisonFields on Character {
+      name
+      friendsConnection(first: $first) {
+        totalCount
+        edges {
+          node {
+            name
+          }
+        }
+      }
+    }
+  </code></pre>
+</div>
+<script type="text/javascript">
+  hljs.highlightAll();
+</script>
+</body>
+</html>
+
