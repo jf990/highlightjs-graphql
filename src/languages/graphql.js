@@ -24,16 +24,19 @@ module.exports = function(hljs) {
         className: "punctuation",
         begin: "[.]{2}",
         end: "\\.",
+        relevance: 0
       },
       {
         className: "punctuation",
-        begin: GQL_PUNCTUATION
+        begin: GQL_PUNCTUATION,
+        relevance: 0
       },
       {
         className: "variable",
         begin: "\\$",
         end: "\\W",
-        excludeEnd: true
+        excludeEnd: true,
+        relevance: 0
       },
       {
         className: "meta",
@@ -52,9 +55,10 @@ module.exports = function(hljs) {
             end: '\\s*:',
             excludeEnd: true
           }
-        ]
-      },
+        ],
+        relevance: 0
+      }
     ],
     illegal: /([;<']|BEGIN)/
-  }
+  };
 };
