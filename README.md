@@ -41,7 +41,6 @@ If you're using Node / Webpack / Rollup / Browserify, etc., require the language
 var hljs = require('highlight.js');
 var hljsGraphQL = require('highlightjs-graphql');
 
-hljs.registerLanguage("graphql", hljsGraphQL);
 hljs.highlightAll();
 ```
 
