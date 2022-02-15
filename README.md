@@ -1,5 +1,7 @@
 # Highlight.js GraphQL
 
+> NOTE: GraphQL is now included in [highlight.js](https://github.com/highlightjs/highlight.js) and no longer maintained here.
+
 Support for using `highlight.js` to syntax highlight GraphQL queries. See https://highlightjs.org/ for more information about highlight.js.
 
 See https://graphql.org/ for more information about GraphQL. Query syntax is described in http://spec.graphql.org/June2018/.
